@@ -6,6 +6,12 @@
 docker build -t campusiot/gateway-manager:latest .
 ```
 
+## Save image
+TODO
+
+## Load image
+TODO
+
 ## Run
 ```bash
 docker rm -f gateway-manager
