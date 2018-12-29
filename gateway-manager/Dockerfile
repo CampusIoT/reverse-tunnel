@@ -3,7 +3,7 @@ MAINTAINER CampusIoT Dev Team "https://github.com/campusiot"
 
 RUN apt-get update
 
-RUN apt-get install -y openssh-server
+RUN apt-get install -y openssh-server sshpass
 RUN mkdir /var/run/sshd
 
 #RUN echo 'root:SUPER_SECRET_TO_CHANGE' | chpasswd
