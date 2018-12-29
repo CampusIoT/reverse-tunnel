@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<manifest>
+<app name="reverse_tunnel_1" appid="21" binary="reverse_tunnel.sh">
+<start autostart="y" />
+<stop kill="9" />
+</app>
+</manifest>
