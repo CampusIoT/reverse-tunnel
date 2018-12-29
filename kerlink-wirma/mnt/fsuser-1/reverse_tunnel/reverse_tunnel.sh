@@ -31,7 +31,7 @@ fi
 
 NBGATEWAYS=$(wc -l gateway.csv)
 if [ "${NBGATEWAYS:0:1}" -ne "1" ]; then
-	logger -t xnet_$NAME "$NAME ($BASE) Malformed gateway.csv file"
+	logger -t campusiot_$NAME "$NAME ($BASE) Malformed gateway.csv file"
 	sleep $DELAY_BEFORE_EXIT_1
 	exit 1
 fi
@@ -54,10 +54,10 @@ if [ -f "$SERVER_REMOTEUSER_RSAPRIV" ]; then
 	rm $SERVER_REMOTEUSER_RSAPRIV
 fi
 
-logger -t xnet_$NAME  "$NAME ($BASE) starting ... (remote=$SERVER_REMOTEIP port=$GATEWAY_SSH_PORT)"
+logger -t campusiot_$NAME  "$NAME ($BASE) starting ... (remote=$SERVER_REMOTEIP port=$GATEWAY_SSH_PORT)"
 
 #   Disconnect the session if no traffic is transmitted or received for idle_timeout seconds.
 #	Autossh is relanched again and again by knet for rejuvinating the ssh connection.
 $AUTOSSH -M 0 -i $SERVER_REMOTEUSER_DROPBEAR $SERVER_REMOTEUSER@$SERVER_REMOTEIP -N  -R $GATEWAY_SSH_PORT:localhost:$LOCAL_SSH_PORT -p $REMOTE_SSH_PORT -y -I $IDLE_TIME
 
-logger -t xnet_$NAME  "$NAME ($BASE) stopped (remote=$SERVER_REMOTEIP port=$GATEWAY_SSH_PORT)"
+logger -t campusiot_$NAME  "$NAME ($BASE) stopped (remote=$SERVER_REMOTEIP port=$GATEWAY_SSH_PORT)"
